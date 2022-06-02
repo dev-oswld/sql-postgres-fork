@@ -79,6 +79,8 @@
 _to be done_
 
 ## Tips and Tricks 
+- [Awesome list about PostgreSQL](https://github.com/dhamaniasad/awesome-postgres)
+
 ```bash
  #List all db
  /l 
