@@ -76,7 +76,37 @@
 ```
 
 ## Comparison Operators
-_to be done_
+```sql
+ #Operators "<" ">" "<=" ">=" "=" "<>" "!="
+ #Strings, Dates
+ #Output: Boolean
+ SELECT 1 = 1; /*T*/
+ SELECT 2 <> 3; /*T*/
+ SELECT 3 != 2; /*T*/
+ SELECT 8 >= 10; /*F*/
+ 
+ #Comparison predicates
+ # BETWEEN, AND, OR, NOT, IS DISTINCT, IS NULL, IS TRUE, IS FALSE, IS UNKNOWN
+ SELECT * FROM person_table WHERE country_of_birth = 'China' OR country_of_birth = 'Brazil' OR country_of_birth = 'France';
+ SELECT * FROM person_table WHERE country_of_birth IN ('China', 'Mexico', 'France');
+
+ #Real example
+ SELECT * FROM person_table WHERE country_of_birth IN ('Nigeria', 'Mexico', 'France') AND gender='Male' ORDER BY country_of_birth;
+```
+
+## Limit Offset and Fetch
+```sql
+ SELECT * FROM person_table LIMIT 10;
+
+ #Another way
+ SELECT * FROM person_table OFFSET 5 LIMIT 10;
+ SELECT * FROM person_table OFFSET 5 FETCH  FIRST 10 ROW ONLY;
+ 
+ #One row 
+ SELECT * FROM person_table OFFSET 618 FETCH  FIRST ROW ONLY;
+```
+
+I'm here 
 
 ## Tips and Tricks 
 - [Awesome list about PostgreSQL](https://github.com/dhamaniasad/awesome-postgres)
