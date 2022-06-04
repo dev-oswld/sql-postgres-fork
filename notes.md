@@ -92,6 +92,27 @@
 
  #Real example
  SELECT * FROM person_table WHERE country_of_birth IN ('Nigeria', 'Mexico', 'France') AND gender='Male' ORDER BY country_of_birth;
+
+ #Output 234
+ SELECT * FROM person_table WHERE date_of_birth BETWEEN DATE '1950-01-01' AND '1970-12-31' ORDER BY country_of_birth;
+
+ SELECT * FROM person_table WHERE email LIKE '%.com';
+ SELECT * FROM person_table WHERE email LIKE '%@microsoft.com';
+
+ #Wildcard characters
+ #Operators "%" "-" "_" "[]" "^" "#"
+ SELECT * FROM person_table WHERE email LIKE '%.com';
+
+ #Output: 1
+ SELECT * FROM person_table WHERE email LIKE '%@microsoft.com';
+ SELECT * FROM person_table WHERE email LIKE '%@microsoft.%';
+
+ #Output: 46
+ SELECT * FROM person_table WHERE email LIKE '_______@%';
+
+ #Output: 137
+ SELECT * FROM person_table WHERE country_of_birth LIKE 'P%';
+ SELECT * FROM person_table WHERE country_of_birth ILIKE 'p%';
 ```
 
 ## Limit Offset and Fetch
@@ -106,7 +127,33 @@
  SELECT * FROM person_table OFFSET 618 FETCH  FIRST ROW ONLY;
 ```
 
-I'm here 
+## Group By
+```sql
+ SELECT DISTINCT country_of_birth FROM person_table GROUP BY country_of_birth;
+ #Output: 122
+ #New temp column
+ SELECT country_of_birth, COUNT(*) FROM person_table GROUP BY country_of_birth ORDER BY country_of_birth;
+```
+
+## Having
+```sql
+ #Aggregate functions (Before order by)
+ SELECT country_of_birth, COUNT(*) FROM person_table GROUP BY country_of_birth HAVING COUNT(*) >= 55 ORDER BY country_of_birth;
+```
+
+## Car Table
+```sql
+# MIN MAX AVG
+ SELECT ROUND(AVG(price)) FROM car;
+ SELECT make, model, MAX(price) FROM car GROUP BY make, model;
+ SELECT make, MIN(price) FROM car GROUP BY make;
+```
+
+## Sum
+SELECT SUM(price) FROM car;
+SELECT make SUM(price) 
+
+I'm here https://youtu.be/5hzZtqCNQKk?t=5743
 
 ## Tips and Tricks 
 - [Awesome list about PostgreSQL](https://github.com/dhamaniasad/awesome-postgres)
