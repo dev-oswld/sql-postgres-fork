@@ -141,19 +141,45 @@
  SELECT country_of_birth, COUNT(*) FROM person_table GROUP BY country_of_birth HAVING COUNT(*) >= 55 ORDER BY country_of_birth;
 ```
 
-## Car Table
+## Arithmetic Operators
 ```sql
+#Use the car.sql file to generate a new table
 # MIN MAX AVG
  SELECT ROUND(AVG(price)) FROM car;
  SELECT make, model, MAX(price) FROM car GROUP BY make, model;
  SELECT make, MIN(price) FROM car GROUP BY make;
+ 
+ SELECT SUM(price) FROM car;
+ SELECT make, SUM(price) FROM car GROUP BY make;
+
+ #Calculator are you here?
+ SELECT 10+2;
+ SELECT 10^3;
+ SELECT 10%3;
+
+ #Alias
+ SELECT id,make,model,price, ROUND(price * 0.10, 2) AS new_colun_name FROM car;
+ SELECT id,make,model,price AS original_price, ROUND(price * 0.10, 2) AS ten_percent, ROUND(price - (price * 0.10),2) AS discount_after_percent FROM car;
 ```
 
-## Sum
-SELECT SUM(price) FROM car;
-SELECT make SUM(price) 
+## Coalesce
+```sql
+ SELECT COALESCE(null, null, 1, 10) AS number_colum;
+ #Return to person_table
+ #Refill empty values
+ SELECT COALESCE(email, 'Email empty') FROM person_table;
+```
 
-I'm here https://youtu.be/5hzZtqCNQKk?t=5743
+## Advanced Functions
+```sql
+ #NULLIF
+ 
+```
+
+## 
+``` NULLIF
+ I'm here https://youtu.be/5hzZtqCNQKk?t=8222
+```
 
 ## Tips and Tricks 
 - [Awesome list about PostgreSQL](https://github.com/dhamaniasad/awesome-postgres)
