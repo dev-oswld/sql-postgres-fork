@@ -13,7 +13,8 @@ SQL is one of the most easy yet powerful programming languages. In this tutorial
 
     > Go to [website](https://www.mockaroo.com).
 
-- **text**: info
+- **DB Diagram**: Draw Entity-Relationship Diagrams, Painlessly. A free, simple tool to draw ER diagrams by just writing code. Designed for developers and data analysts.
+    
+    > Go to [website](https://dbdiagram.io/home).
 
-
-*To be define this*
+*Las updated @today*
